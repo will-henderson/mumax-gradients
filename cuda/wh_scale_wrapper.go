@@ -66,13 +66,13 @@ func k_scale_async(dst unsafe.Pointer, src unsafe.Pointer, fac float32, N int, c
 
 // maps compute capability on PTX code for scale kernel.
 var scale_map = map[int]string{0: "",
-	50: scale_ptx_50}
+	80: scale_ptx_80}
 
 // scale PTX code for various compute capabilities.
 const (
-	scale_ptx_50 = `
-.version 7.8
-.target sm_50
+	scale_ptx_80 = `
+.version 8.2
+.target sm_80
 .address_size 64
 
 	// .globl	scale

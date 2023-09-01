@@ -93,13 +93,13 @@ func k_initRotation_async(mx unsafe.Pointer, my unsafe.Pointer, mz unsafe.Pointe
 
 // maps compute capability on PTX code for initRotation kernel.
 var initRotation_map = map[int]string{0: "",
-	50: initRotation_ptx_50}
+	80: initRotation_ptx_80}
 
 // initRotation PTX code for various compute capabilities.
 const (
-	initRotation_ptx_50 = `
-.version 7.8
-.target sm_50
+	initRotation_ptx_80 = `
+.version 8.2
+.target sm_80
 .address_size 64
 
 	// .globl	initRotation

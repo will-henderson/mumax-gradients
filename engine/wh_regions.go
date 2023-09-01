@@ -15,3 +15,7 @@ func UniformGeometry() bool {
 	return spaceFill() > 0.99 //not one because potential numerical error.
 
 }
+
+func Geometry() *geom {
+	return &geometry
+}

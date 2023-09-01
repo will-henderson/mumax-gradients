@@ -63,13 +63,13 @@ func k_tensorFieldFactor_async(dst unsafe.Pointer, ms unsafe.Pointer, N int, cfg
 
 // maps compute capability on PTX code for tensorFieldFactor kernel.
 var tensorFieldFactor_map = map[int]string{0: "",
-	50: tensorFieldFactor_ptx_50}
+	80: tensorFieldFactor_ptx_80}
 
 // tensorFieldFactor PTX code for various compute capabilities.
 const (
-	tensorFieldFactor_ptx_50 = `
-.version 7.8
-.target sm_50
+	tensorFieldFactor_ptx_80 = `
+.version 8.2
+.target sm_80
 .address_size 64
 
 	// .globl	tensorFieldFactor
@@ -89,10 +89,10 @@ const (
 	ld.param.u64 	%rd2, [tensorFieldFactor_param_0];
 	ld.param.u64 	%rd3, [tensorFieldFactor_param_1];
 	ld.param.u32 	%r2, [tensorFieldFactor_param_2];
-	mov.u32 	%r3, %ctaid.y;
-	mov.u32 	%r4, %nctaid.x;
+	mov.u32 	%r3, %nctaid.x;
+	mov.u32 	%r4, %ctaid.y;
 	mov.u32 	%r5, %ctaid.x;
-	mad.lo.s32 	%r6, %r3, %r4, %r5;
+	mad.lo.s32 	%r6, %r4, %r3, %r5;
 	mov.u32 	%r7, %ntid.x;
 	mov.u32 	%r8, %tid.x;
 	mad.lo.s32 	%r1, %r6, %r7, %r8;

@@ -84,13 +84,13 @@ func k_unipadmul_async(dst unsafe.Pointer, Dx int, Dy int, Dz int, Sx int, Sy in
 
 // maps compute capability on PTX code for unipadmul kernel.
 var unipadmul_map = map[int]string{0: "",
-	50: unipadmul_ptx_50}
+	80: unipadmul_ptx_80}
 
 // unipadmul PTX code for various compute capabilities.
 const (
-	unipadmul_ptx_50 = `
-.version 7.8
-.target sm_50
+	unipadmul_ptx_80 = `
+.version 8.2
+.target sm_80
 .address_size 64
 
 	// .globl	unipadmul

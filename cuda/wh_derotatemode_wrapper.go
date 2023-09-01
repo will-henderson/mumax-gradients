@@ -90,13 +90,13 @@ func k_derotateMode_async(dstx unsafe.Pointer, dsty unsafe.Pointer, dstz unsafe.
 
 // maps compute capability on PTX code for derotateMode kernel.
 var derotateMode_map = map[int]string{0: "",
-	50: derotateMode_ptx_50}
+	80: derotateMode_ptx_80}
 
 // derotateMode PTX code for various compute capabilities.
 const (
-	derotateMode_ptx_50 = `
-.version 7.8
-.target sm_50
+	derotateMode_ptx_80 = `
+.version 8.2
+.target sm_80
 .address_size 64
 
 	// .globl	derotateMode

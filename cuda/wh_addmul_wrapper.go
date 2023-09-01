@@ -66,13 +66,13 @@ func k_addMul_async(dst unsafe.Pointer, src1 unsafe.Pointer, src2 unsafe.Pointer
 
 // maps compute capability on PTX code for addMul kernel.
 var addMul_map = map[int]string{0: "",
-	50: addMul_ptx_50}
+	80: addMul_ptx_80}
 
 // addMul PTX code for various compute capabilities.
 const (
-	addMul_ptx_50 = `
-.version 7.8
-.target sm_50
+	addMul_ptx_80 = `
+.version 8.2
+.target sm_80
 .address_size 64
 
 	// .globl	addMul
